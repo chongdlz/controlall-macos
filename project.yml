@@ -1,0 +1,28 @@
+name: ControlAll
+options:
+  bundleIdPrefix: com.sky
+  deploymentTarget:
+    macOS: "10.15"
+  xcodeVersion: "15.0"
+
+targets:
+  ControlAll:
+    type: application
+    platform: macOS
+    sources:
+      - Sources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sky.controlall
+        PRODUCT_NAME: ControlAll
+        INFOPLIST_FILE: Sources/Info.plist
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_STYLE: Manual
+        DEVELOPMENT_TEAM: ""
+        MACOSX_DEPLOYMENT_TARGET: "10.15"
+        SWIFT_VERSION: "5.9"
+        LD_RUNPATH_SEARCH_PATHS: "@executable_path/../Frameworks"
+        COMBINE_HIDPI_IMAGES: YES
+    dependencies:
+      - framework: ServiceManagement.framework
+        embed: false
