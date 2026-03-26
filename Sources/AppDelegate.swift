@@ -309,8 +309,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             servicesHTML += """
                 <div class="project-item" id="project-\(idx)">
-                    <div class="project-header">
-                        <button class="expand-btn" onclick="toggleProject(\(idx))">+</button>
+                    <div class="project-header" onclick="toggleProject(\(idx))">
+                        <button class="expand-btn" onclick="event.stopPropagation(); toggleProject(\(idx))">+</button>
                         <div class="project-icon">📦</div>
                         <div class="project-info">
                             <div class="project-name">\(name)</div>
@@ -394,6 +394,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     align-items: center;
                     gap: 10px;
                     margin-bottom: 8px;
+                    cursor: pointer;
                 }
                 .project-icon {
                     width: 32px; height: 32px;
